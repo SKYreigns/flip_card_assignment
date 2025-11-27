@@ -396,3 +396,106 @@ button {
     border-radius: 2px;
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
+
+
+
+/* =========================================
+   RESPONSIVE LOGIC (ALL DEVICES)
+   Paste this at the bottom of flip_card.css
+   ========================================= */
+
+/* 1. Large Monitors (4k / Ultrawide) */
+/* Scales up the cards so they don't look tiny on huge screens */
+@media (min-width: 1600px) {
+    .banner .slider {
+        transform: translate(-50%, -50%) perspective(1000px) scale(1.4);
+    }
+    .content h1 { font-size: 12vw; } /* Cap the watermark size */
+}
+
+/* 2. Laptops & Short Screens (Key Fix for Alignment) */
+/* Targets screens with limited height (like MacBook Air or 1366x768 laptops) */
+@media (max-height: 850px) {
+    .banner .slider {
+        /* Shrink 3D scene vertically to prevent overlap with buttons */
+        transform: translate(-50%, -50%) perspective(1000px) scale(0.85);
+    }
+    .controls-area { bottom: 30px; }
+    .author { bottom: 30px; }
+}
+
+/* 3. Tablets (Portrait) & Large Phones */
+@media (max-width: 1024px) and (orientation: portrait) {
+    .banner .slider {
+        transform: translate(-50%, -50%) perspective(1000px) scale(0.9);
+    }
+    
+    /* Move Author to Top Left to balance the Score (Top Right) */
+    .author {
+        top: 30px;
+        left: 30px;
+        bottom: auto;
+        right: auto;
+        text-align: left;
+    }
+    /* Flip the gold line decoration to the left */
+    .author::after { left: -15px; right: auto; }
+}
+
+/* 4. Mobile Devices (Portrait) */
+@media (max-width: 600px) {
+    .banner .slider {
+        /* Significant shrink to fit narrow widths */
+        transform: translate(-50%, -50%) perspective(1000px) scale(0.65);
+    }
+    
+    /* Compact UI */
+    .controls-area {
+        width: 92%;
+        bottom: 25px;
+        gap: 10px;
+    }
+    
+    /* Move Author to Top Left */
+    .author {
+        top: 25px; 
+        left: 20px;
+        right: auto; 
+        bottom: auto;
+        text-align: left;
+    }
+    .author::after { left: -15px; right: auto; }
+    
+    /* Adjust Scoreboard */
+    .score-board {
+        top: 25px;
+        right: 15px;
+        padding: 8px 12px;
+        gap: 10px;
+    }
+    .score-board b { font-size: 1rem; }
+}
+
+/* 5. Mobile Landscape (Rotated Phone) */
+/* Extreme constraint: Very little vertical height */
+@media (max-height: 500px) and (orientation: landscape) {
+    .banner .slider {
+        transform: translate(-50%, -50%) perspective(1000px) scale(0.5);
+    }
+    /* Hide non-essential UI to save space */
+    .author { display: none; }
+    .content h1 { display: none; }
+    
+    /* Arrange buttons side-by-side */
+    .controls-area {
+        flex-direction: row;
+        bottom: 10px;
+        width: 95%;
+        align-items: center;
+    }
+    .nav-panel { 
+        border-top: none; 
+        padding-top: 0; 
+        margin-left: 20px; 
+    }
+}
