@@ -227,11 +227,10 @@ body {
 /* --- Controls --- */
 .controls-area {
     position: absolute;
-    bottom: 80px;
     left: 52%;
     transform: translateX(-50%);
     width: 320px;
-    height: 100px;
+    height: 130px;
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -255,6 +254,8 @@ button {
     font-size: 1.1rem;
     box-shadow: 0 4px 15px #ffd7004d;
 }
+
+
 .action-btn:hover {
     background: rgba(255, 215, 0, 1);
     box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
@@ -358,8 +359,8 @@ button {
 /* --- Author Signature (Bring this to the front) --- */
 .author {
     position: absolute;
-    bottom: 10px;
-    right: -130px;
+    right: -100px;
+    bottom: -100px;
     text-align: right;
     z-index: 100; /* Layer 100: On TOP of cards */
     pointer-events: none; /* Let clicks pass through if it overlaps slightly */
