@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Flashcards 3D</title>
+    <link rel="stylesheet" href="flip_card.css">
+    <link href="https://fonts.cdnfonts.com/css/ica-rubrik-black" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+</head>
+<body>
+    <div class="banner">
+        <div class="score-board">
+            <span>Known: <b id="score-known">0</b></span>
+            <span>Review: <b id="score-review">0</b></span>
+        </div>
+
+        <div class="slider" id="slider">
+            </div>
+
+        <div class="controls-area">
+            <div class="interaction-panel">
+                <button id="btn-flip" class="action-btn">Show Answer</button>
+            </div>
+            
+            <div class="rating-panel" style="display: none;">
+                <button id="btn-knew" class="rate-btn knew">I knew it</button>
+                <button id="btn-didnt" class="rate-btn didnt">I didn't</button>
+            </div>
+
+            <div class="nav-panel">
+                <button id="btn-prev" class="nav-btn">← Prev</button>
+                <button id="btn-next" class="nav-btn">Next →</button>
+            </div>
+        </div>
+
+       <div class="content">
+            <h1>ML QUIZ</h1>
+        </div>
+        
+        <div class="author">
+            <h2>Flashcards</h2>
+            <p>Machine Learning Basics</p>
+        </div>
+    </div>
+
+    <script src="flip_card.js"></script>
+</body>
+</html>
