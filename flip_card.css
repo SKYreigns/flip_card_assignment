@@ -1,404 +1,454 @@
-@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
-@import url('https://fonts.cdnfonts.com/css/poppins');
+@import url("https://fonts.cdnfonts.com/css/ica-rubrik-black");
+@import url("https://fonts.cdnfonts.com/css/poppins");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    /* Rich gradient background to make glassmorphism visible */
-    background: radial-gradient(circle at 50% 50%, #2b324d, #121420);
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
-    height: 100vh;
+  /* Rich gradient background to make glassmorphism visible */
+  background: radial-gradient(circle at 50% 50%, #2b324d, #121420);
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  height: 100vh;
 }
+/* ----- 1. Header (Navbar) ----- */
+.glass-header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 70px;
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.04);        /* no var() */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.12);  /* no var() */
+    border-radius: 20px;
+    border-bottom: 3px solid #ffffff38;
+    box-shadow: 0 10px 30px #ffdd0033;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+    z-index: 100;
+}
+
+/* ----- Logo ----- */
+.logo {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #888787;
+}
+
+.logo span {
+    color: #e6c069;   /* gold */
+}
+
+/* ----- Nav Links ----- */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.65);   /* text-muted */
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s color ease;
+}
+
+.nav-links a:hover {
+    color: #e6c069;   /* gold hover */
+}
+
 
 .banner {
-    width: 90vw;
-    height: 90vh;
-    text-align: center;
-    position: relative;
+  width: 90vw;
+  height: 90vh;
+  text-align: center;
+  position: relative;
 }
-
 
 /* --- Score Board (Glass Style) --- */
 .score-board {
-    position: absolute;
-    top: 40px;
-    right: -80px;
-    z-index: 100;
-    
-    /* Glass Effect */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    
-    padding: 15px 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    
-    display: flex;
-    gap: 20px; /* Space between "Known" and "Review" */
-    font-family: 'Poppins', sans-serif;
+  position: absolute;
+  top: 100px;
+  right: -80px;
+  z-index: 100;
+
+  /* Glass Effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+
+  padding: 15px 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  gap: 20px; /* Space between "Known" and "Review" */
+  font-family: "Poppins", sans-serif;
 }
 
 .score-board span {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .score-board b {
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: 700;
-    margin-top: 5px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 5px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Color accents for the numbers */
 #score-known {
-    color: #4caf50; /* Green glow for Known */
-    text-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+  color: #4caf50; /* Green glow for Known */
+  text-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
 }
 
 #score-review {
-    color: #f44336; /* Red glow for Review */
-    text-shadow: 0 0 15px rgba(244, 67, 54, 0.6);
+  color: #f44336; /* Red glow for Review */
+  text-shadow: 0 0 15px rgba(244, 67, 54, 0.6);
 }
-
 
 /* --- 3D Slider Container --- */
 .banner .slider {
-    position: absolute;
-    width: 200px;
-    height: 300px;
-    top: 40%;
-    left: 45%; 
-    /* Centering adjustment */
-    transform: translate(-50%, -50%) perspective(1000px); 
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    z-index: 2;
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  top: 40%;
+  left: 45%;
+  /* Centering adjustment */
+  transform: translate(-50%, -50%) perspective(1000px);
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 2;
 }
 
 /* --- Individual Card Wrapper --- */
 .banner .slider .item {
-    position: absolute;
-    inset: 0;
-    /* Calculate rotation based on index */
-    transform: 
-        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-        translateZ(550px);
-    transform-style: preserve-3d;
+  position: absolute;
+  inset: 0;
+  /* Calculate rotation based on index */
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+    )
+    translateZ(550px);
+  transform-style: preserve-3d;
 }
 
 /* --- The Glass Card --- */
 .card-inner {
-    position: relative;
-    width: 90%;
-    /* INCREASED HEIGHT to prevent overflow */
-    height: 80%; 
-    border-radius: 10px;
-    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform-style: preserve-3d;
-    cursor: pointer;
-    margin: 0 auto; /* Center in the item */
-    top: 10%; /* Center vertically in item */
-    
-    /* Global Glass Shadow */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 90%;
+  /* INCREASED HEIGHT to prevent overflow */
+  height: 80%;
+  border-radius: 10px;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  margin: 0 auto; /* Center in the item */
+  top: 10%; /* Center vertically in item */
+
+  /* Global Glass Shadow */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
 /* Hover Effect: Scale up and Glow */
 .card-inner:hover {
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3), 0 20px 40px rgba(0,0,0,0.6);
-    transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3), 0 20px 40px rgba(0, 0, 0, 0.6);
+  transform: scale(1.02);
 }
 /* Respect rotation on hover when flipped */
 .card-inner.is-flipped:hover {
-    transform: rotateY(180deg) scale(1.02);
+  transform: rotateY(180deg) scale(1.02);
 }
 
 .card-inner.is-flipped {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 /* --- Common Face Styles (Glass) --- */
 .card-face {
-    position: absolute;
-    inset: 0;
-    border-radius: 10px;
-    padding: 10px; /* Reduced padding slightly for more text room */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    backface-visibility: hidden;
-    
-    /* GLASSMORPHISM */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
-    
-    /* Overflow Handling */
-    overflow-y: auto; /* Allows scroll if text is still too long */
-    scrollbar-width: none; /* Firefox: Hide scrollbar */
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 10px; /* Reduced padding slightly for more text room */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  backface-visibility: hidden;
+
+  /* GLASSMORPHISM */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+
+  /* Overflow Handling */
+  overflow-y: auto; /* Allows scroll if text is still too long */
+  scrollbar-width: none; /* Firefox: Hide scrollbar */
 }
 /* Hide scrollbar for Chrome/Safari */
 .card-face::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Front (Question) */
 .card-face.front {
-    background: linear-gradient(
-        135deg, 
-        rgba(255, 255, 255, 0.1) 0%, 
-        rgba(255, 255, 255, 0.02) 100%
-    );
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
 }
 
 /* Back (Answer) */
 .card-face.back {
-    transform: rotateY(180deg);
-    position: absolute;
-    /* DEFAULT STATE: Blurred (hides answer) */
-    filter: blur(15px); 
-    opacity: 0.8;
-    transition: filter 0.5s ease, opacity 0.5s ease;
-    
-    background: linear-gradient(
-        135deg, 
-        rgba(0, 0, 0, 0.4) 0%, 
-        rgba(0, 0, 0, 0.1) 100%
-    );
-    border: 1px solid rgba(255, 215, 0, 0.2);
+  transform: rotateY(180deg);
+  position: absolute;
+  /* DEFAULT STATE: Blurred (hides answer) */
+  filter: blur(15px);
+  opacity: 0.8;
+  transition: filter 0.5s ease, opacity 0.5s ease;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 /* --- NEW RULE: REMOVE BLUR WHEN FLIPPED --- */
 .card-inner.is-flipped .card-face.back {
-    filter: blur(0);
-    opacity: 1;
+  filter: blur(0);
+  opacity: 1;
 }
 
 /* Typography */
 .card-face h3 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #ffffff99;
-    border-bottom: 1px solid #ffffff33;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    width: 100%;
-    position: absolute;
-    top: 10px;
-    left: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffffff99;
+  border-bottom: 1px solid #ffffff33;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 0;
 }
 
 .card-face p {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #ffffff;
-    line-height: 1.5;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    position: absolute;
-    top: 25%;
-    /* transform: translate(-50%, -50%); */
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.5;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 25%;
+  /* transform: translate(-50%, -50%); */
 }
 
 /* Specific smaller font for Back face to fit longer answers */
 .card-face.back p {
-    font-size: 12px; 
+  font-size: 12px;
 }
 
 /* --- Controls --- */
 .controls-area {
-    position: absolute;
-    left: 52%;
-    transform: translateX(-50%);
-    width: 320px;
-    height: 130px;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  position: absolute;
+  left: 52%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 130px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 button {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
 .action-btn {
-    padding: 15px;
-    border-radius: 30px;
-    background: #ffd700cc;
-    color: #382e00;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 15px #ffd7004d;
+  padding: 15px;
+  border-radius: 30px;
+  background: #ffd700cc;
+  color: #382e00;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px #ffd7004d;
 }
-
 
 .action-btn:hover {
-    background: rgba(255, 215, 0, 1);
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-    transform: translateY(-2px);
+  background: rgba(255, 215, 0, 1);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
 }
 .rating-panel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 15px;
-    /* REMOVED: transform: translateX(-50%); <-- This was breaking the alignment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  /* REMOVED: transform: translateX(-50%); <-- This was breaking the alignment */
 }
 
 .rate-btn {
-    flex: 1; /* Ensures both buttons are exactly the same size */
-    padding: 15px;
-    border-radius: 30px;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    border: 1px solid rgba(255,255,255,0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
+  flex: 1; /* Ensures both buttons are exactly the same size */
+  padding: 15px;
+  border-radius: 30px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.knew { 
-    background: rgba(94, 175, 97, 0.83); 
-    box-shadow: 0 4px 15px rgba(75, 150, 77, 1);
+.knew {
+  background: rgba(94, 175, 97, 0.83);
+  box-shadow: 0 4px 15px rgba(75, 150, 77, 1);
 }
-.knew:hover { 
-    background: rgba(76, 175, 80, 1); 
-    box-shadow: 0 0 20px rgba(193, 255, 195, 0.5); 
-    transform: translateY(-2px);
-}
-
-.didnt { 
-    background: rgba(244, 67, 54, 0.4); 
-    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.2);
-}
-.didnt:hover { 
-    background: rgba(244, 67, 54, 0.8); 
-    box-shadow: 0 0 20px rgba(244, 67, 54, 0.5); 
-    transform: translateY(-2px);
+.knew:hover {
+  background: rgba(76, 175, 80, 1);
+  box-shadow: 0 0 20px rgba(193, 255, 195, 0.5);
+  transform: translateY(-2px);
 }
 
-
+.didnt {
+  background: rgba(244, 67, 54, 0.4);
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.2);
+}
+.didnt:hover {
+  background: rgba(244, 67, 54, 0.8);
+  box-shadow: 0 0 20px rgba(244, 67, 54, 0.5);
+  transform: translateY(-2px);
+}
 
 /* --- Navigation Panel (Prev/Next) --- */
 .nav-panel {
-    display: flex;
-    justify-content: space-between; /* Spreads buttons to edges */
-    gap: 15px;
-    margin-top: 10px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider line */
+  display: flex;
+  justify-content: space-between; /* Spreads buttons to edges */
+  gap: 15px;
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider line */
 }
 
 .nav-btn {
-    flex: 1; /* Make them equal width */
-    padding: 12px;
-    border-radius: 50px; /* Fully rounded pill shape */
-    background: rgba(255, 255, 255, 0.05); /* Very subtle glass */
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+  flex: 1; /* Make them equal width */
+  padding: 12px;
+  border-radius: 50px; /* Fully rounded pill shape */
+  background: rgba(255, 255, 255, 0.05); /* Very subtle glass */
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 .nav-btn:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
-
 
 /* --- Background Watermark (Keep this behind everything) --- */
 .banner .content {
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    z-index: 0; /* Layer 0: Behind cards */
-    pointer-events: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  z-index: 0; /* Layer 0: Behind cards */
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner .content h1 {
-    font-family: 'ICA Rubrik Black', sans-serif;
-    font-size: 12vw;
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
+  font-family: "ICA Rubrik Black", sans-serif;
+  font-size: 12vw;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
 }
 
 /* --- Author Signature (Bring this to the front) --- */
 .author {
-    position: absolute;
-    right: -100px;
-    bottom: -100px;
-    text-align: right;
-    z-index: 100; /* Layer 100: On TOP of cards */
-    pointer-events: none; /* Let clicks pass through if it overlaps slightly */
-    font-family: 'Poppins', sans-serif;
+  position: absolute;
+  right: -100px;
+  bottom: -100px;
+  text-align: right;
+  z-index: 100; /* Layer 100: On TOP of cards */
+  pointer-events: none; /* Let clicks pass through if it overlaps slightly */
+  font-family: "Poppins", sans-serif;
 }
 
 .author h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 0;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .author p {
-    font-size: 0.9rem;
-    color: #ffd700; /* Gold */
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-top: 5px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  font-size: 0.9rem;
+  color: #ffd700; /* Gold */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 5px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Optional: Stylish vertical line decoration */
 .author::after {
-    content: '';
-    position: absolute;
-    right: -15px;
-    top: 5px;
-    bottom: 5px;
-    width: 4px;
-    background-color: #ffd700;
-    border-radius: 2px;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  content: "";
+  position: absolute;
+  right: -15px;
+  top: 5px;
+  bottom: 5px;
+  width: 4px;
+  background-color: #ffd700;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
-
-
 
 /* =========================================
    RESPONSIVE LOGIC (ALL DEVICES)
@@ -408,95 +458,113 @@ button {
 /* 1. Large Monitors (4k / Ultrawide) */
 /* Scales up the cards so they don't look tiny on huge screens */
 @media (min-width: 1600px) {
-    .banner .slider {
-        transform: translate(-50%, -50%) perspective(1000px) scale(1.4);
-    }
-    .content h1 { font-size: 12vw; } /* Cap the watermark size */
+  .banner .slider {
+    transform: translate(-50%, -50%) perspective(1000px) scale(1.4);
+  }
+  .content h1 {
+    font-size: 12vw;
+  } /* Cap the watermark size */
 }
 
 /* 2. Laptops & Short Screens (Key Fix for Alignment) */
 /* Targets screens with limited height (like MacBook Air or 1366x768 laptops) */
 @media (max-height: 850px) {
-    .banner .slider {
-        /* Shrink 3D scene vertically to prevent overlap with buttons */
-        transform: translate(-50%, -50%) perspective(1000px) scale(0.85);
-    }
-    .controls-area { bottom: 30px; }
-    .author { bottom: 30px; }
+  .banner .slider {
+    /* Shrink 3D scene vertically to prevent overlap with buttons */
+    transform: translate(-50%, -50%) perspective(1000px) scale(0.85);
+  }
+  .controls-area {
+    bottom: 30px;
+  }
+  .author {
+    bottom: 30px;
+  }
 }
 
 /* 3. Tablets (Portrait) & Large Phones */
 @media (max-width: 1024px) and (orientation: portrait) {
-    .banner .slider {
-        transform: translate(-50%, -50%) perspective(1000px) scale(0.9);
-    }
-    
-    /* Move Author to Top Left to balance the Score (Top Right) */
-    .author {
-        top: 30px;
-        left: 30px;
-        bottom: auto;
-        right: auto;
-        text-align: left;
-    }
-    /* Flip the gold line decoration to the left */
-    .author::after { left: -15px; right: auto; }
+  .banner .slider {
+    transform: translate(-50%, -50%) perspective(1000px) scale(0.9);
+  }
+
+  /* Move Author to Top Left to balance the Score (Top Right) */
+  .author {
+    top: 30px;
+    left: 30px;
+    bottom: auto;
+    right: auto;
+    text-align: left;
+  }
+  /* Flip the gold line decoration to the left */
+  .author::after {
+    left: -15px;
+    right: auto;
+  }
 }
 
 /* 4. Mobile Devices (Portrait) */
 @media (max-width: 600px) {
-    .banner .slider {
-        /* Significant shrink to fit narrow widths */
-        transform: translate(-50%, -50%) perspective(1000px) scale(0.65);
-    }
-    
-    /* Compact UI */
-    .controls-area {
-        width: 92%;
-        bottom: 25px;
-        gap: 10px;
-    }
-    
-    /* Move Author to Top Left */
-    .author {
-        top: 25px; 
-        left: 20px;
-        right: auto; 
-        bottom: auto;
-        text-align: left;
-    }
-    .author::after { left: -15px; right: auto; }
-    
-    /* Adjust Scoreboard */
-    .score-board {
-        top: 25px;
-        right: 15px;
-        padding: 8px 12px;
-        gap: 10px;
-    }
-    .score-board b { font-size: 1rem; }
+  .banner .slider {
+    /* Significant shrink to fit narrow widths */
+    transform: translate(-50%, -50%) perspective(1000px) scale(0.65);
+  }
+
+  /* Compact UI */
+  .controls-area {
+    width: 92%;
+    bottom: 25px;
+    gap: 10px;
+  }
+
+  /* Move Author to Top Left */
+  .author {
+    top: 25px;
+    left: 20px;
+    right: auto;
+    bottom: auto;
+    text-align: left;
+  }
+  .author::after {
+    left: -15px;
+    right: auto;
+  }
+
+  /* Adjust Scoreboard */
+  .score-board {
+    top: 25px;
+    right: 15px;
+    padding: 8px 12px;
+    gap: 10px;
+  }
+  .score-board b {
+    font-size: 1rem;
+  }
 }
 
 /* 5. Mobile Landscape (Rotated Phone) */
 /* Extreme constraint: Very little vertical height */
 @media (max-height: 500px) and (orientation: landscape) {
-    .banner .slider {
-        transform: translate(-50%, -50%) perspective(1000px) scale(0.5);
-    }
-    /* Hide non-essential UI to save space */
-    .author { display: none; }
-    .content h1 { display: none; }
-    
-    /* Arrange buttons side-by-side */
-    .controls-area {
-        flex-direction: row;
-        bottom: 10px;
-        width: 95%;
-        align-items: center;
-    }
-    .nav-panel { 
-        border-top: none; 
-        padding-top: 0; 
-        margin-left: 20px; 
-    }
+  .banner .slider {
+    transform: translate(-50%, -50%) perspective(1000px) scale(0.5);
+  }
+  /* Hide non-essential UI to save space */
+  .author {
+    display: none;
+  }
+  .content h1 {
+    display: none;
+  }
+
+  /* Arrange buttons side-by-side */
+  .controls-area {
+    flex-direction: row;
+    bottom: 10px;
+    width: 95%;
+    align-items: center;
+  }
+  .nav-panel {
+    border-top: none;
+    padding-top: 0;
+    margin-left: 20px;
+  }
 }
